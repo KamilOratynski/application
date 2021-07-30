@@ -1,19 +1,30 @@
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Application {
 
-    private static Scanner sc = new Scanner(System.in);
+    private Scanner scanner;
+    private PrintStream printStream;
+
+    public Application(InputStream inputStream, PrintStream printStream) {
+        this.scanner = new Scanner(inputStream);
+        this.printStream = printStream;
+    }
 
     public static void main(String[] args) {
-        System.out.print("Choose a char: ");
+        Application application = new Application(System.in, System.out);
+        application.chooseAndPrintResult();
+    }
 
-        String s = sc.nextLine();
+    public void chooseAndPrintResult() {
+        printStream.print("Choose a char: ");
+        String s = scanner.nextLine();
         char ch = s.charAt(0);
-
         for (char c = 'a'; c <= 'z'; c++) {
             if (ch == c) {
                 for (int i = 0; i < 4; i++) {
-                    System.out.print(c);
+                    printStream.print(c);
                 }
             }
         }
