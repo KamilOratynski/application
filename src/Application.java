@@ -1,12 +1,7 @@
 public class Application {
 
     public static void main(String[] args) {
-        Application app = new Application();
-        System.out.println(app.print());
+        System.out.println("xxxx");
     }
-
-    public String print() {
-        return "xxxx";
-    }
-
+    
 }
