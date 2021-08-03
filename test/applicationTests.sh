@@ -1,21 +1,17 @@
 cd ../src || exit
-cp Application.java ../test
-cd ../test || exit
-
 javac Application.java
-java Application >inputFromApplication.txt
+outputFromApplication=$(java Application)
 
 expected="xxxx"
-echo $expected >expected.txt
 
 echo "Checking if output is equal: \"xxxx\""
-if [ "$expected" == "$(cat inputFromApplication.txt)" ]; then
+if [ "$expected" == "$outputFromApplication" ]; then
   echo "Test passed"
 else
   echo "Test failed"
-  diff -u --color ./inputFromApplication.txt ./expected.txt
+  echo "Output from application: $outputFromApplication"
+  echo "Expected value: $expected"
+  read -n 1 -p "Press any key to exit..."
 fi
 
-read -n 1 -p "Press any key to exit..."
-
-rm Application.java Application.class inputFromApplication.txt expected.txt
+rm ../src/Application.class
