@@ -5,7 +5,13 @@
 # Console application.
 
 ### How to run
-First, run console (CMD), and go to folder that containing Application.java. Then start two commands below. After doing their, you will get a result in console.
+First check your version java in console(CMD):
+```
+java --version
+```
+[If you don't have, you can download from here](https://www.oracle.com/java/technologies/javase-downloads.html)
+
+Next, go to folder that containing Application.java. Then start two commands below. After doing their, you will get a result in console.
 ```
 javac Application.java
 ```
