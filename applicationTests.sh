@@ -1,17 +1,8 @@
-cd ../src || exit
 javac Application.java
 outputFromApplication=$(java Application)
-
 expected="xxxx"
 
-echo "Checking if output is equal: \"xxxx\""
-if [ "$expected" == "$outputFromApplication" ]; then
-  echo "Test passed"
-else
-  echo "Test failed"
-  echo "Output from application: $outputFromApplication"
-  echo "Expected value: $expected"
-  read -n 1 -p "Press any key to exit..."
-fi
+echo "Checking if output is equal: $expected"
+diff -u --color <(echo "$expected") <(echo "$outputFromApplication") || read -n 1 -p "Process finished with exit code 1: Test failed"
 
-rm ../src/Application.class
+rm Application.class

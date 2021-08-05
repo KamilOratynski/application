@@ -9,6 +9,7 @@ First check your version java in console(CMD):
 ```
 java --version
 ```
+Prefers using Java version 13. <br/>
 [If you don't have, you can download from here](https://www.oracle.com/java/technologies/javase-downloads.html)
 
 Next, go to folder that containing Application.java. Then start two commands below. After doing their, you will get a result in console.
