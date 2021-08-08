@@ -1,25 +1,19 @@
-/** <br/>
-&nbsp;&nbsp;&nbsp;\* Kamil Oratyński <br/>
-&nbsp;&nbsp;&nbsp;*/
-
 # Console application.
+Simple java application.
 
-### How to run
-First check your version java in console(CMD):
-```
-java --version
-```
-Prefers using Java version 13. <br/>
-[If you don't have, you can download from here](https://www.oracle.com/java/technologies/javase-downloads.html)
+### Getting Started
+####Prerequisites:
+* [Java 13](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html)
 
-Next, go to folder that containing Application.java. Then start two commands below. After doing their, you will get a result in console.
+#### Installing & executing program
+Open cmd, make sure you have installed Java 13. Then execute:
 ```
-javac Application.java
+git clone https://github.com/KamilOratynski/application.git
+cd application/
+java Application.java
 ```
-```
-java Application
-```
-<br/>
+After these steps you will get a result in console.
 
-### v1.0
+### Version History
+####v1.0
 Application in console that displays "xxxx".
