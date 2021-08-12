@@ -2,7 +2,7 @@
 Simple java application.
 
 ### Getting Started
-####Prerequisites:
+#### Prerequisites:
 * [Java 13](https://www.oracle.com/java/technologies/javase/jdk13-archive-downloads.html)
 
 #### Installing & executing program
@@ -15,5 +15,5 @@ java Application.java
 After these steps you will get a result in console.
 
 ### Version History
-####v1.0
+#### v1.0
 Application in console that displays "xxxx".
