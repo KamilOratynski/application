@@ -9,5 +9,7 @@ java Application.java
 ```
 
 ### Version History
+#### v2.0
+Added possibility of entering quantity of characters. 
 #### v1.0
 Application in console that displays "xxxx".
