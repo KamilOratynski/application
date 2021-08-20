@@ -10,6 +10,6 @@ java Application.java
 
 ### Version History
 #### v2.0
-Added possibility of entering quantity of characters. 
+Added possibility of entering quantity of characters in launching file. 
 #### v1.0
 Application in console that displays "xxxx".
