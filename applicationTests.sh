@@ -1,3 +1,1 @@
-java Application.java > output.txt
-
-diff -u --color ./output.txt ./expected.txt && rm output.txt
+java Application.java | diff -u --color - ./expected.txt
