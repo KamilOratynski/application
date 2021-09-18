@@ -1,1 +1,3 @@
-java Application.java | diff -u --color - ./expected.txt
+./release.sh
+
+java Application | diff -u --color - ./expected.txt
