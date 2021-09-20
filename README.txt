@@ -1,1 +1,1 @@
-Application displays "xxxx".
+Application displays "x" as many times as given parameter. Default parameter is 4.
