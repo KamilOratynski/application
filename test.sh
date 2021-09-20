@@ -2,6 +2,6 @@ set -e
 
 ./release.sh
 
-java Application | diff -u --color - ./withoutParameter.txt
+java Application | diff -u --color - ./default.txt
 
-java Application 5 | diff -u --color - ./fiveChars.txt
+java Application 5 | diff -u --color - ./5.txt
