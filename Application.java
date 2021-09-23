@@ -1,10 +1,8 @@
 public class Application {
 
     public static void main(String[] args) {
-        int count;
-        if (args.length == 0) {
-            count = 4;
-        } else {
+        int count = 4;
+        if (args.length > 0) {
             count = Integer.parseInt(args[0]);
         }
         for (int i = 0; i < count; i++) {
