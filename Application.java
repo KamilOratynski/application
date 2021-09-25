@@ -1,9 +1,13 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 public class Application {
 
+    private static void runTests() {
+        test1();
+        test2();
+        test3();
+    }
+
     public static void main(String[] args) {
+        runTests();
         String out = run(args);
         System.out.print(out);
     }
@@ -22,24 +26,21 @@ public class Application {
         return out;
     }
 
-    @Test
-    public void test() {
+    public static void test1() {
         String args[] = {"0"};
         String out = Application.run(args);
-        Assertions.assertEquals("\n", out);
+        assert "\n".equals(out);
     }
 
-    @Test
-    public void test2() {
+    public static void test2() {
         String args[] = {"1"};
         String out = Application.run(args);
-        Assertions.assertEquals("x\n", out);
+        assert "x\n".equals(out);
     }
 
-    @Test
-    public void test3() {
+    public static void test3() {
         String args[] = {"2"};
         String out = Application.run(args);
-        Assertions.assertEquals("xx\n", out);
+        assert "xx\n".equals(out);
     }
 }
