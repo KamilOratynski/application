@@ -1,6 +1,7 @@
 set -e
 
 ./release.sh
+./unittests.sh
 
 java Application | diff -u --color - ./default.txt
 
