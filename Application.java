@@ -18,7 +18,7 @@ public class Application {
         for (int i = 0; i < count; i++) {
             out += "x";
         }
-        out += "\n";
+        out += "\r\n";
         return out;
     }
 
@@ -26,20 +26,20 @@ public class Application {
     public void test() {
         String args[] = {"0"};
         String out = Application.run(args);
-        Assertions.assertEquals("\n", out);
+        Assertions.assertEquals("\r\n", out);
     }
 
     @Test
     public void test2() {
         String args[] = {"1"};
         String out = Application.run(args);
-        Assertions.assertEquals("x\n", out);
+        Assertions.assertEquals("x\r\n", out);
     }
 
     @Test
     public void test3() {
         String args[] = {"2"};
         String out = Application.run(args);
-        Assertions.assertEquals("xx\n", out);
+        Assertions.assertEquals("xx\r\n", out);
     }
 }
