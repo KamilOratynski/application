@@ -1,6 +1,6 @@
 set -e
 
-./compile.sh
+javac -cp junit-platform-console-standalone-1.8.1.jar Application.java
 
 java -jar ./junit-platform-console-standalone-1.8.1.jar --disable-banner -cp . -c Application
 
