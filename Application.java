@@ -23,21 +23,21 @@ public class Application {
     }
 
     @Test
-    public void test() {
+    public void withParam0() {
         String args[] = {"0"};
         String out = Application.run(args);
         Assertions.assertEquals("\r\n", out);
     }
 
     @Test
-    public void test2() {
+    public void withParam1() {
         String args[] = {"1"};
         String out = Application.run(args);
         Assertions.assertEquals("x\r\n", out);
     }
 
     @Test
-    public void test3() {
+    public void withParam2() {
         String args[] = {"2"};
         String out = Application.run(args);
         Assertions.assertEquals("xx\r\n", out);
