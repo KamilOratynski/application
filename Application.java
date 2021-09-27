@@ -9,16 +9,16 @@ public class Application {
     }
 
     private static String run(String[] args) {
-        int count = 4;
-        if (args.length > 0) {
-            count = Integer.parseInt(args[0]);
-        }
-
         String out = "";
-        for (int i = 0; i < count; i++) {
-            out += "x";
+        if (args.length > 0) {
+            int count = Integer.parseInt(args[0]);
+            for (int i = 0; i < count; i++) {
+                out += "x";
+            }
+            out += "\n";
+        } else {
+            System.out.print("Missing parameter.");
         }
-        out += "\n";
         return out;
     }
 

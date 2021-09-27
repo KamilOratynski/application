@@ -1,1 +1,1 @@
-Application displays "x" as many times as given parameter. Default parameter is 4.
+Application displays "x" as many times as defined by given parameter.
