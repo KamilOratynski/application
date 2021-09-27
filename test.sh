@@ -1,7 +1,8 @@
 set -e
 
 ./compile.sh
-./ut.sh
+
+java -jar ./junit-platform-console-standalone-1.8.1.jar --disable-banner -cp . -c Application
 
 java Application | diff -u --color - ./default.txt
 
