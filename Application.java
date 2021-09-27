@@ -17,9 +17,16 @@ public class Application {
             }
             out += "\n";
         } else {
-            System.out.print("Missing parameter.");
+            out = "Missing parameter.\n";
         }
         return out;
+    }
+
+    @Test
+    public void noParam() {
+        String[] args = {};
+        String out = Application.run(args);
+        Assertions.assertEquals("Missing parameter.\n", out);
     }
 
     @Test
