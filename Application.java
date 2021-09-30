@@ -15,12 +15,10 @@ public class Application {
 
         String out = "";
         int count = Integer.parseInt(args[0]);
-        if (args.length == 1) {
-            for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count; i++) {
+            if (args.length == 1) {
                 out += "x";
-            }
-        } else {
-            for (int i = 0; i < count; i++) {
+            } else {
                 out += args[1];
             }
         }
