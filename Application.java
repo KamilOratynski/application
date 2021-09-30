@@ -48,4 +48,25 @@ public class Application {
         String out = Application.run(args);
         Assertions.assertEquals("xx\n", out);
     }
+
+    @Test
+    public void withParam0y() {
+        String[] args = {"0", "y"};
+        String out = Application.run(args);
+        Assertions.assertEquals("\n", out);
+    }
+
+    @Test
+    public void withParam1y() {
+        String[] args = {"1", "y"};
+        String out = Application.run(args);
+        Assertions.assertEquals("y\n", out);
+    }
+
+    @Test
+    public void withParam2y() {
+        String[] args = {"2", "y"};
+        String out = Application.run(args);
+        Assertions.assertEquals("yy\n", out);
+    }
 }
