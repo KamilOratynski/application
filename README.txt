@@ -1,1 +1,1 @@
-Application displays as many times and such a character as defined by given parameters.
+Application displays "x" character as many times as defined by given first parameter. Character can be changed by setting second parameter.
