@@ -13,8 +13,8 @@ public class Application {
             return "Missing parameter.\n";
         }
 
-        String out = "";
         int count = Integer.parseInt(args[0]);
+        String out = "";
         for (int i = 0; i < count; i++) {
             if (args.length == 1) {
                 out += "x";
