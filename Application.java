@@ -10,7 +10,14 @@ public class Application {
 
     private static String run(String[] args) {
         if (args.length == 0) {
-            return "Missing parameter.\n";
+            return "java Application: missing parameter\nTry 'java Application --help' for more information.";
+        }
+
+        if (args[0].equals("--help") || args[0].equals("--h")) {
+            return "Usage: java Application <number> [character]\n\n" +
+                    "Arguments:\n" +
+                    "<number>    - set number of characters displaying, 'x' is displayed by default\n" +
+                    "[character] - set character to display";
         }
 
         int count = Integer.parseInt(args[0]);
@@ -30,7 +37,7 @@ public class Application {
     public void noParam() {
         String[] args = {};
         String out = Application.run(args);
-        Assertions.assertEquals("Missing parameter.\n", out);
+        Assertions.assertEquals("java Application: missing parameter\nTry 'java Application --help' for more information.", out);
     }
 
     @Test
@@ -73,5 +80,27 @@ public class Application {
         String[] args = {"2", "y"};
         String out = Application.run(args);
         Assertions.assertEquals("yy\n", out);
+    }
+
+    @Test
+    public void withParamH() {
+        String[] args = {"--h"};
+        String out = Application.run(args);
+        Assertions.assertEquals(
+                "Usage: java Application <number> [character]\n\n" +
+                "Arguments:\n" +
+                "<number>    - set number of characters displaying, 'x' is displayed by default\n" +
+                "[character] - set character to display", out);
+    }
+
+    @Test
+    public void withParamHelp() {
+        String[] args = {"--help"};
+        String out = Application.run(args);
+        Assertions.assertEquals(
+                "Usage: java Application <number> [character]\n\n" +
+                        "Arguments:\n" +
+                        "<number>    - set number of characters displaying, 'x' is displayed by default\n" +
+                        "[character] - set character to display", out);
     }
 }

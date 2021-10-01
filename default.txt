@@ -1,1 +1,2 @@
-Missing parameter.
+java Application: missing parameter
+Try 'java Application --help' for more information.
