@@ -17,7 +17,3 @@ java Application 0 z | diff -Zu --color - ./0.txt
 java Application 1 z | diff -Zu --color - ./1z.txt
 
 java Application 2 z | diff -Zu --color - ./2z.txt
-
-java Application --h | diff -Zu --color - ./help.txt
-
-java Application --help | diff -Zu --color - ./help.txt

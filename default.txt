@@ -1,2 +1,6 @@
 java Application: missing parameter
-Try 'java Application --help' for more information.
+Usage: java Application <number> [character]
+
+Arguments:
+<number>    - set number of characters displaying
+[character] - set character to display, 'x' is displayed by default
