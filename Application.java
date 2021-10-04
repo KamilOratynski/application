@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -23,7 +25,14 @@ public class Application {
             }
         }
         out += "\n";
-        return out;
+        System.out.println(out);
+
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+        int index = Integer.parseInt(input.substring(0, 1));
+        char newLetter = input.charAt(1);
+        String changedLetter = out.substring(0, index - 1) + newLetter + out.substring(index);
+        return changedLetter;
     }
 
     @Test
