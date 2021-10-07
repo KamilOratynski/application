@@ -1,1 +1,1 @@
-Application displays "x" character as many times as defined by given first parameter. Character can be changed by setting second parameter. When the given characters are displayed, one character can be replaced by entering its number on which it is and defined a new character.
+Application displays "x" character as many times as defined by given first parameter. Character can be changed by setting second parameter. One character can be replaced by entering its number on which it is and defined a new character.

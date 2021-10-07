@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 public class Application {
@@ -11,7 +12,7 @@ public class Application {
     }
 
     private static String run(String[] args) {
-        if (args.length == 0) {
+        if (args.length == 0 || args[0].equals("0")) {
             return "Missing parameter.\n";
         }
 
@@ -25,62 +26,80 @@ public class Application {
             }
         }
         out += "\n";
-        System.out.println(out);
 
         Scanner scanner = new Scanner(System.in);
         String input = scanner.next();
+        if (input.length() != 2) {
+            return "Missing parameter.\n";
+        }
         int index = Integer.parseInt(input.substring(0, 1));
         char newLetter = input.charAt(1);
-        String changedLetter = out.substring(0, index - 1) + newLetter + out.substring(index);
-        return changedLetter;
+        if (count < index || index == 0) {
+            return "Missing parameter.\n";
+        }
+        return out.substring(0, index - 1) + newLetter + out.substring(index);
     }
 
     @Test
     public void noParam() {
-        String[] args = {};
-        String out = Application.run(args);
+        System.setIn(new ByteArrayInputStream("2z".getBytes()));
+        String out = Application.run(new String[]{});
         Assertions.assertEquals("Missing parameter.\n", out);
     }
 
     @Test
-    public void withParam0() {
-        String[] args = {"0"};
-        String out = Application.run(args);
-        Assertions.assertEquals("\n", out);
+    public void withWrongParamToChange0() {
+        System.setIn(new ByteArrayInputStream("0w".getBytes()));
+        String out = Application.run(new String[]{"1", "y"});
+        Assertions.assertEquals("Missing parameter.\n", out);
     }
 
     @Test
-    public void withParam1() {
-        String[] args = {"1"};
-        String out = Application.run(args);
-        Assertions.assertEquals("x\n", out);
+    public void withSmallParamToChange() {
+        System.setIn(new ByteArrayInputStream("0".getBytes()));
+        String out = Application.run(new String[]{"1", "y"});
+        Assertions.assertEquals("Missing parameter.\n", out);
     }
 
     @Test
-    public void withParam2() {
-        String[] args = {"2"};
-        String out = Application.run(args);
-        Assertions.assertEquals("xx\n", out);
+    public void withParam0AndLargeParamToChange() {
+        System.setIn(new ByteArrayInputStream("2z".getBytes()));
+        String out = Application.run(new String[]{"0"});
+        Assertions.assertEquals("Missing parameter.\n", out);
     }
 
     @Test
-    public void withParam0y() {
-        String[] args = {"0", "y"};
-        String out = Application.run(args);
-        Assertions.assertEquals("\n", out);
+    public void withParam1AndChangeHim() {
+        System.setIn(new ByteArrayInputStream("1z".getBytes()));
+        String out = Application.run(new String[]{"1"});
+        Assertions.assertEquals("z\n", out);
     }
 
     @Test
-    public void withParam1y() {
-        String[] args = {"1", "y"};
-        String out = Application.run(args);
-        Assertions.assertEquals("y\n", out);
+    public void withParam2AndChangeFirst() {
+        System.setIn(new ByteArrayInputStream("1z".getBytes()));
+        String out = Application.run(new String[]{"2"});
+        Assertions.assertEquals("zx\n", out);
     }
 
     @Test
-    public void withParam2y() {
-        String[] args = {"2", "y"};
-        String out = Application.run(args);
-        Assertions.assertEquals("yy\n", out);
+    public void withParam2AndChangeSecond() {
+        System.setIn(new ByteArrayInputStream("2z".getBytes()));
+        String out = Application.run(new String[]{"2"});
+        Assertions.assertEquals("xz\n", out);
+    }
+
+    @Test
+    public void withParam2yAndChangeFirst() {
+        System.setIn(new ByteArrayInputStream("1z".getBytes()));
+        String out = Application.run(new String[]{"2", "y"});
+        Assertions.assertEquals("zy\n", out);
+    }
+
+    @Test
+    public void withParam2yAndChangeSecond() {
+        System.setIn(new ByteArrayInputStream("2z".getBytes()));
+        String out = Application.run(new String[]{"2", "y"});
+        Assertions.assertEquals("yz\n", out);
     }
 }
