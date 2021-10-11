@@ -12,15 +12,15 @@ public class Application {
         if (args.length == 0) {
             return "Missing parameter.\n";
         }
-
         int count = Integer.parseInt(args[0]);
+        String chars = "x";
+        if (args.length > 1) {
+            chars = args[1];
+        }
+
         String out = "";
         for (int i = 0; i < count; i++) {
-            if (args.length == 1) {
-                out += "x";
-            } else {
-                out += args[1];
-            }
+            out += chars;
         }
         out += "\n";
         return out;
