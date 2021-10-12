@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 public class Application {
@@ -36,6 +37,15 @@ public class Application {
         int index = Integer.parseInt(replacedChar.substring(0, 1));
         char newChar = replacedChar.charAt(1);
         return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
+    }
+
+    @Test
+    public void withParam2yReplace1a() {
+        String[] args = {"2", "y"};
+        String out = Application.settingChars(args);
+        System.setIn(new ByteArrayInputStream("1a".getBytes()));
+        String out1 = Application.settingCharReplace(out);
+        Assertions.assertEquals("ay\n", out1);
     }
 
     @Test
