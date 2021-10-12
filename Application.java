@@ -1,11 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 public class Application {
 
     public static void main(String[] args) {
         String setChars = settingChars(args);
         System.out.print(setChars);
+        String replacedChars = settingCharReplace(setChars);
+        System.out.print(replacedChars);
     }
 
     private static String settingChars(String[] args) {
@@ -24,6 +28,14 @@ public class Application {
         }
         setChars += "\n";
         return setChars;
+    }
+
+    public static String settingCharReplace(String setChars) {
+        Scanner scanner = new Scanner(System.in);
+        String replacedChar = scanner.next();
+        int index = Integer.parseInt(replacedChar.substring(0, 1));
+        char newChar = replacedChar.charAt(1);
+        return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
     }
 
     @Test
