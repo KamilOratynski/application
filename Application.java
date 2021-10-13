@@ -34,9 +34,13 @@ public class Application {
     public static String settingCharReplace(String setChars) {
         Scanner scanner = new Scanner(System.in);
         String replacedChar = scanner.next();
-        int index = Integer.parseInt(replacedChar.substring(0, 1));
-        char newChar = replacedChar.charAt(1);
-        return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
+        if (replacedChar.equals("q")) {
+            return "";
+        }  else {
+            int index = Integer.parseInt(replacedChar.substring(0, 1));
+            char newChar = replacedChar.charAt(1);
+            return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
+        }
     }
 
     @Test
