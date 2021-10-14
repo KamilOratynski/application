@@ -44,6 +44,24 @@ public class Application {
     }
 
     @Test
+    public void withParam1yReplace1a() {
+        String[] args = {"1", "y"};
+        String out = Application.settingChars(args);
+        System.setIn(new ByteArrayInputStream("1a".getBytes()));
+        String out1 = Application.settingCharReplace(out);
+        Assertions.assertEquals("a\n", out1);
+    }
+
+    @Test
+    public void withParam2yReplace2a() {
+        String[] args = {"2", "y"};
+        String out = Application.settingChars(args);
+        System.setIn(new ByteArrayInputStream("2a".getBytes()));
+        String out1 = Application.settingCharReplace(out);
+        Assertions.assertEquals("ya\n", out1);
+    }
+
+    @Test
     public void withParam2yReplace1a() {
         String[] args = {"2", "y"};
         String out = Application.settingChars(args);
