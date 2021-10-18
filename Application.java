@@ -11,6 +11,16 @@ public class Application {
         System.out.print(setChars);
         String replacedChars = settingCharReplace(setChars);
         System.out.print(replacedChars);
+        loopingChars(replacedChars);
+    }
+
+    private static void loopingChars(String replacedChars) {
+        String loop = replacedChars;
+        while (!loop.equals("")) {
+            String newString = settingCharReplace(loop);
+            loop = newString;
+            System.out.print(newString);
+        }
     }
 
     private static String settingChars(String[] args) {
