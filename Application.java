@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
+        run(args);
+    }
+
+    private static void run(String[] args) {
         String setChars = settingChars(args);
         System.out.print(setChars);
         String replacedChars = settingCharReplace(setChars);
