@@ -18,8 +18,10 @@ echo q | java Application 1 z | diff -Zu --color - ./1z.txt
 
 echo q | java Application 2 z | diff -Zu --color - ./2z.txt
 
-echo 1a | java Application 1 y | diff -Zu --color - ./1yReplace1a.txt
+(echo -e "1a\n" & sleep .1 ; echo -e "q\n") | java Application 1 y | diff -Zu --color - ./1yReplace1a.txt
 
-echo 1a | java Application 2 y | diff -Zu --color - ./2yReplace1a.txt
+(echo -e "1a\n" & sleep .1 ; echo -e "q\n") | java Application 2 y | diff -Zu --color - ./2yReplace1a.txt
+
+(echo -e "2a\n" & sleep .1 ; echo -e "q\n") | java Application 2 y | diff -Zu --color - ./2yReplace2a.txt
 
 echo 2a | java Application 2 y | diff -Zu --color - ./2yReplace2a.txt
