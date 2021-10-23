@@ -28,4 +28,4 @@ echo 1x 2y q | java Application 2 z | diff -Zu --color - ./startZZendXY.txt
 
 echo 1x 2y 3a q | java Application 5 z | diff -Zu --color - ./startZZZZZendXYAZZ.txt
 
-echo 1x 2y 3a 1x 2y 3a q | java Application 3 z | diff -Zu --color - ./startZZZendXYAtwice.txt
+echo 1x 2y 3a 1q 2w 3e q | java Application 3 z | diff -Zu --color - ./startZZZendQWE.txt
