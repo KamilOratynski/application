@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Missing parameter.");
+            return;
+        }
         String replacedChars = run(args);
         System.out.print(replacedChars);
         Scanner scanner = new Scanner(System.in);
@@ -16,9 +20,6 @@ public class Application {
     }
 
     private static String run(String[] args) {
-        if (args.length == 0) {
-            return "Missing parameter.\n";
-        }
         int count = Integer.parseInt(args[0]);
         String character = "x";
         if (args.length > 1) {
@@ -73,9 +74,7 @@ public class Application {
 
     @Test
     public void noParam() {
-        String[] args = {};
-        String out = Application.run(args);
-        Assertions.assertEquals("Missing parameter.\n", out);
+        //TODO try to add test
     }
 
     @Test
