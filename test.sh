@@ -1,4 +1,4 @@
-set -e
+set -eo pipefail
 
 javac -cp junit-platform-console-standalone-1.8.1.jar Application.java
 
