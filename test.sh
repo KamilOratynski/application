@@ -18,14 +18,14 @@ echo q | java Application 1 z | diff -Zu --color - ./1z.txt
 
 echo q | java Application 2 z | diff -Zu --color - ./2z.txt
 
-(echo -e "1a\n" & sleep .1 ; echo -e "q\n") | java Application 1 y | diff -Zu --color - ./1yReplace1a.txt
+echo 1a q | java Application 1 y | diff -Zu --color - ./1yReplace1a.txt
 
-(echo -e "1a\n" & sleep .1 ; echo -e "q\n") | java Application 2 y | diff -Zu --color - ./2yReplace1a.txt
+echo 1a q | java Application 2 y | diff -Zu --color - ./2yReplace1a.txt
 
-(echo -e "2a\n" & sleep .1 ; echo -e "q\n") | java Application 2 y | diff -Zu --color - ./2yReplace2a.txt
+echo 2a q | java Application 2 y | diff -Zu --color - ./2yReplace2a.txt
 
-(echo -e "1x\n" & sleep .1 ; echo -e "2y\n" & sleep .1 ; echo -e "q\n") | java Application 2 z | diff -Zu --color - ./startZZendXY.txt
+echo 1x 2y q | java Application 2 z | diff -Zu --color - ./startZZendXY.txt
 
-(echo -e "1x\n" & sleep .1 ; echo -e "2y\n" & sleep .1 ; echo -e "3a\n" & sleep .1 ; echo -e "q\n") | java Application 5 z | diff -Zu --color - ./startZZZZZendXYAZZ.txt
+echo 1x 2y 3a q | java Application 5 z | diff -Zu --color - ./startZZZZZendXYAZZ.txt
 
-(echo -e "1x\n" & sleep .1 ; echo -e "2y\n" & sleep .1 ; echo -e "3a\n" & sleep .1 ; echo -e "1x\n" & sleep .1 ; echo -e "2y\n" & sleep .1 ; echo -e "3a\n" & sleep .1 ; echo -e "q\n") | java Application 3 z | diff -Zu --color - ./startZZZendXYAtwice.txt
+echo 1x 2y 3a 1x 2y 3a q | java Application 3 z | diff -Zu --color - ./startZZZendXYAtwice.txt

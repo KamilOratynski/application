@@ -11,13 +11,14 @@ public class Application {
     }
 
     private static void run(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         String setChars = settingChars(args);
         System.out.print(setChars);
-        String replacedChars = settingCharReplace(setChars);
+        String replacedChars = settingCharReplace(setChars, scanner);
         System.out.print(replacedChars);
         String loop = replacedChars;
         while (!loop.equals("")) {
-            String newString = settingCharReplace(loop);
+            String newString = settingCharReplace(loop, scanner);
             loop = newString;
             System.out.print(newString);
         }
@@ -41,11 +42,10 @@ public class Application {
         return setChars;
     }
 
-    public static String settingCharReplace(String setChars) {
+    public static String settingCharReplace(String setChars, Scanner scanner) {
         if (setChars.equals("Missing parameter.\n")) {
             return "";
         }
-        Scanner scanner = new Scanner(System.in);
         String replacedChar = scanner.next();
         if (replacedChar.equals("q")) {
             return "";
@@ -60,8 +60,7 @@ public class Application {
     public void withParam1yReplace1a() {
         String[] args = {"1", "y"};
         String out = Application.settingChars(args);
-        System.setIn(new ByteArrayInputStream("1a".getBytes()));
-        String out1 = Application.settingCharReplace(out);
+        String out1 = Application.settingCharReplace(out, new Scanner("1a"));
         Assertions.assertEquals("a\n", out1);
     }
 
@@ -69,8 +68,7 @@ public class Application {
     public void withParam2yReplace2a() {
         String[] args = {"2", "y"};
         String out = Application.settingChars(args);
-        System.setIn(new ByteArrayInputStream("2a".getBytes()));
-        String out1 = Application.settingCharReplace(out);
+        String out1 = Application.settingCharReplace(out, new Scanner("2a"));
         Assertions.assertEquals("ya\n", out1);
     }
 
@@ -78,8 +76,7 @@ public class Application {
     public void withParam2yReplace1a() {
         String[] args = {"2", "y"};
         String out = Application.settingChars(args);
-        System.setIn(new ByteArrayInputStream("1a".getBytes()));
-        String out1 = Application.settingCharReplace(out);
+        String out1 = Application.settingCharReplace(out, new Scanner("1a"));
         Assertions.assertEquals("ay\n", out1);
     }
 
