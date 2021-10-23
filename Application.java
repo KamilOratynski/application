@@ -35,9 +35,6 @@ public class Application {
     }
 
     public static String settingCharReplace(String setChars, Scanner scanner) {
-        if (setChars.equals("Missing parameter.\n")) {
-            return "";
-        }
         String replacedChar = scanner.next();
         if (replacedChar.equals("q")) {
             return "";
