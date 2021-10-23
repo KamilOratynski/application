@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         String setChars = run(args);
         System.out.print(setChars);
+        Scanner scanner = new Scanner(System.in);
         String replacedChars = settingCharReplace(setChars, scanner);
         System.out.print(replacedChars);
         String loop = replacedChars;
