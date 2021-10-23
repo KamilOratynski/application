@@ -9,8 +9,7 @@ public class Application {
         String setChars = run(args);
         System.out.print(setChars);
         Scanner scanner = new Scanner(System.in);
-        String replacedChars = settingCharReplace(setChars, scanner);
-        System.out.print(replacedChars);
+        String replacedChars = setChars;
         while (!replacedChars.equals("")) {
             replacedChars = settingCharReplace(replacedChars, scanner);
             System.out.print(replacedChars);
