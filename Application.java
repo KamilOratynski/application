@@ -11,11 +11,9 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         String replacedChars = settingCharReplace(setChars, scanner);
         System.out.print(replacedChars);
-        String loop = replacedChars;
-        while (!loop.equals("")) {
-            String newString = settingCharReplace(loop, scanner);
-            loop = newString;
-            System.out.print(newString);
+        while (!replacedChars.equals("")) {
+            replacedChars = settingCharReplace(replacedChars, scanner);
+            System.out.print(replacedChars);
         }
     }
 
