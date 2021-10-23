@@ -7,7 +7,7 @@ public class Application {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String setChars = settingChars(args);
+        String setChars = run(args);
         System.out.print(setChars);
         String replacedChars = settingCharReplace(setChars, scanner);
         System.out.print(replacedChars);
@@ -19,7 +19,7 @@ public class Application {
         }
     }
 
-    private static String settingChars(String[] args) {
+    private static String run(String[] args) {
         if (args.length == 0) {
             return "Missing parameter.\n";
         }
@@ -54,7 +54,7 @@ public class Application {
     @Test
     public void withParam1yReplace1a() {
         String[] args = {"1", "y"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         String out1 = Application.settingCharReplace(out, new Scanner("1a"));
         Assertions.assertEquals("a\n", out1);
     }
@@ -62,7 +62,7 @@ public class Application {
     @Test
     public void withParam2yReplace2a() {
         String[] args = {"2", "y"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         String out1 = Application.settingCharReplace(out, new Scanner("2a"));
         Assertions.assertEquals("ya\n", out1);
     }
@@ -70,7 +70,7 @@ public class Application {
     @Test
     public void withParam2yReplace1a() {
         String[] args = {"2", "y"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         String out1 = Application.settingCharReplace(out, new Scanner("1a"));
         Assertions.assertEquals("ay\n", out1);
     }
@@ -78,49 +78,49 @@ public class Application {
     @Test
     public void noParam() {
         String[] args = {};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("Missing parameter.\n", out);
     }
 
     @Test
     public void withParam0() {
         String[] args = {"0"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("\n", out);
     }
 
     @Test
     public void withParam1() {
         String[] args = {"1"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("x\n", out);
     }
 
     @Test
     public void withParam2() {
         String[] args = {"2"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("xx\n", out);
     }
 
     @Test
     public void withParam0y() {
         String[] args = {"0", "y"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("\n", out);
     }
 
     @Test
     public void withParam1y() {
         String[] args = {"1", "y"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("y\n", out);
     }
 
     @Test
     public void withParam2y() {
         String[] args = {"2", "y"};
-        String out = Application.settingChars(args);
+        String out = Application.run(args);
         Assertions.assertEquals("yy\n", out);
     }
 }
