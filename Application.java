@@ -1,16 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 public class Application {
 
     public static void main(String[] args) {
-        run(args);
-    }
-
-    private static void run(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String setChars = settingChars(args);
         System.out.print(setChars);
