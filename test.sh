@@ -4,28 +4,42 @@ javac -cp junit-platform-console-standalone-1.8.1.jar Application.java
 
 java -jar ./junit-platform-console-standalone-1.8.1.jar --disable-banner --details=none -cp . -c Application
 
-java Application | diff -Zu --color - ./default.txt
+java Application | diff -Zu --color - <(cat <<<'Missing parameter.')
 
-echo q | java Application 0 | diff -Zu --color - ./0.txt
+echo q | java Application 0 | diff -Zu --color - <(cat <<<'')
 
-echo q | java Application 1 | diff -Zu --color - ./1.txt
+echo q | java Application 1 | diff -Zu --color - <(cat <<<'x')
 
-echo q | java Application 2 | diff -Zu --color - ./2.txt
+echo q | java Application 2 | diff -Zu --color - <(cat <<<'xx')
 
-echo q | java Application 0 z | diff -Zu --color - ./0.txt
+echo q | java Application 0 z | diff -Zu --color - <(cat <<<'')
 
-echo q | java Application 1 z | diff -Zu --color - ./1z.txt
+echo q | java Application 1 z | diff -Zu --color - <(cat <<<'z')
 
-echo q | java Application 2 z | diff -Zu --color - ./2z.txt
+echo q | java Application 2 z | diff -Zu --color - <(cat <<<'zz')
 
-echo 1a q | java Application 1 y | diff -Zu --color - ./1yReplace1a.txt
+echo 1a q | java Application 1 y | diff -Zu --color - <(cat <<<'y
+a')
 
-echo 1a q | java Application 2 y | diff -Zu --color - ./2yReplace1a.txt
+echo 1a q | java Application 2 y | diff -Zu --color - <(cat <<<'yy
+ay')
 
-echo 2a q | java Application 2 y | diff -Zu --color - ./2yReplace2a.txt
+echo 2a q | java Application 2 y | diff -Zu --color - <(cat <<<'yy
+ya')
 
-echo 1x 2y q | java Application 2 z | diff -Zu --color - ./startZZendXY.txt
+echo 1x 2y q | java Application 2 z | diff -Zu --color - <(cat <<<'zz
+xz
+xy')
 
-echo 1x 2y 3a q | java Application 5 z | diff -Zu --color - ./startZZZZZendXYAZZ.txt
+echo 1x 2y 3a q | java Application 5 z | diff -Zu --color - <(cat <<<'zzzzz
+xzzzz
+xyzzz
+xyazz')
 
-echo 1x 2y 3a 1q 2w 3e q | java Application 3 z | diff -Zu --color - ./startZZZendQWE.txt
+echo 1x 2y 3a 1q 2w 3e q | java Application 3 z | diff -Zu --color - <(cat <<<'zzz
+xzz
+xyz
+xya
+qya
+qwa
+qwe')
