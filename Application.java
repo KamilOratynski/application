@@ -23,32 +23,32 @@ public class Application {
             if (token.equals("q")) {
                 return;
             }
-            out = settingCharReplace(out, token);
+            out = apply(out, token);
             System.out.print(out);
         }
     }
 
-    public static String settingCharReplace(String setChars, String token) {
+    public static String apply(String s, String token) {
         int index = Integer.parseInt(token.substring(0, 1));
-        char newChar = token.charAt(1);
-        return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
+        char c = token.charAt(1);
+        return s.substring(0, index - 1) + c + s.substring(index);
     }
 
     @Test
     public void withParam1yReplace1a() {
-        String out = Application.settingCharReplace("y", "1a");
+        String out = Application.apply("y", "1a");
         Assertions.assertEquals("a", out);
     }
 
     @Test
     public void withParam2yReplace2a() {
-        String out = Application.settingCharReplace("yy", "2a");
+        String out = Application.apply("yy", "2a");
         Assertions.assertEquals("ya", out);
     }
 
     @Test
     public void withParam2yReplace1a() {
-        String out = Application.settingCharReplace("yy", "1a");
+        String out = Application.apply("yy", "1a");
         Assertions.assertEquals("ay", out);
     }
 }
