@@ -13,11 +13,13 @@ public class Application {
         String replacedChars = run(args);
         System.out.print(replacedChars);
         Scanner scanner = new Scanner(System.in);
-        String token = scanner.next();
-        while (!token.equals("q")) {
+        for (; ; ) {
+            String token = scanner.next();
+            if (token.equals("q")) {
+                return;
+            }
             replacedChars = settingCharReplace(replacedChars, token);
             System.out.print(replacedChars);
-            token = scanner.next();
         }
     }
 
@@ -31,10 +33,10 @@ public class Application {
         return character.repeat(count) + "\n";
     }
 
-    public static String settingCharReplace(String setChars,String token) {
-            int index = Integer.parseInt(token.substring(0, 1));
-            char newChar = token.charAt(1);
-            return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
+    public static String settingCharReplace(String setChars, String token) {
+        int index = Integer.parseInt(token.substring(0, 1));
+        char newChar = token.charAt(1);
+        return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
     }
 
     @Test
@@ -45,7 +47,7 @@ public class Application {
 
     @Test
     public void withParam2yReplace2a() {
-        String out = Application.settingCharReplace("yy","2a");
+        String out = Application.settingCharReplace("yy", "2a");
         Assertions.assertEquals("ya", out);
     }
 
