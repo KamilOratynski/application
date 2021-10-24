@@ -26,12 +26,7 @@ public class Application {
             character = args[1];
         }
 
-        String setChars = "";
-        for (int i = 0; i < count; i++) {
-            setChars += character;
-        }
-        setChars += "\n";
-        return setChars;
+        return character.repeat(count) + "\n";
     }
 
     public static String settingCharReplace(String setChars, Scanner scanner) {
