@@ -13,9 +13,11 @@ public class Application {
         String replacedChars = run(args);
         System.out.print(replacedChars);
         Scanner scanner = new Scanner(System.in);
-        while (!replacedChars.equals("")) {
-            replacedChars = settingCharReplace(replacedChars, scanner);
+        String token = scanner.next();
+        while (!token.equals("q")) {
+            replacedChars = settingCharReplace(replacedChars, token);
             System.out.print(replacedChars);
+            token = scanner.next();
         }
     }
 
@@ -29,39 +31,28 @@ public class Application {
         return character.repeat(count) + "\n";
     }
 
-    public static String settingCharReplace(String setChars, Scanner scanner) {
-        String replacedChar = scanner.next();
-        if (replacedChar.equals("q")) {
-            return "";
-        } else {
-            int index = Integer.parseInt(replacedChar.substring(0, 1));
-            char newChar = replacedChar.charAt(1);
+    public static String settingCharReplace(String setChars,String token) {
+            int index = Integer.parseInt(token.substring(0, 1));
+            char newChar = token.charAt(1);
             return setChars.substring(0, index - 1) + newChar + setChars.substring(index);
-        }
     }
 
     @Test
     public void withParam1yReplace1a() {
-        String[] args = {"1", "y"};
-        String out = Application.run(args);
-        String out1 = Application.settingCharReplace(out, new Scanner("1a"));
-        Assertions.assertEquals("a\n", out1);
+        String out = Application.settingCharReplace("y", "1a");
+        Assertions.assertEquals("a", out);
     }
 
     @Test
     public void withParam2yReplace2a() {
-        String[] args = {"2", "y"};
-        String out = Application.run(args);
-        String out1 = Application.settingCharReplace(out, new Scanner("2a"));
-        Assertions.assertEquals("ya\n", out1);
+        String out = Application.settingCharReplace("yy","2a");
+        Assertions.assertEquals("ya", out);
     }
 
     @Test
     public void withParam2yReplace1a() {
-        String[] args = {"2", "y"};
-        String out = Application.run(args);
-        String out1 = Application.settingCharReplace(out, new Scanner("1a"));
-        Assertions.assertEquals("ay\n", out1);
+        String out = Application.settingCharReplace("yy", "1a");
+        Assertions.assertEquals("ay", out);
     }
 
     @Test
