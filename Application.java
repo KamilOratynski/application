@@ -15,16 +15,16 @@ public class Application {
         if (args.length > 1) {
             character = args[1];
         }
-        String replacedChars = character.repeat(count) + "\n";
-        System.out.print(replacedChars);
+        String out = character.repeat(count) + "\n";
+        System.out.print(out);
         Scanner scanner = new Scanner(System.in);
         for (; ; ) {
             String token = scanner.next();
             if (token.equals("q")) {
                 return;
             }
-            replacedChars = settingCharReplace(replacedChars, token);
-            System.out.print(replacedChars);
+            out = settingCharReplace(out, token);
+            System.out.print(out);
         }
     }
 
