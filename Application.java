@@ -35,20 +35,9 @@ public class Application {
     }
 
     @Test
-    public void withParam1yReplace1a() {
-        String out = Application.apply("y", "1a");
-        Assertions.assertEquals("a", out);
-    }
-
-    @Test
-    public void withParam2yReplace2a() {
-        String out = Application.apply("yy", "2a");
-        Assertions.assertEquals("ya", out);
-    }
-
-    @Test
-    public void withParam2yReplace1a() {
-        String out = Application.apply("yy", "1a");
-        Assertions.assertEquals("ay", out);
+    public void applyToken() {
+        Assertions.assertEquals("a", Application.apply("y", "1a"));
+        Assertions.assertEquals("ya", Application.apply("yy", "2a"));
+        Assertions.assertEquals("ay", Application.apply("yy", "1a"));
     }
 }
