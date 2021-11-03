@@ -1,77 +1,45 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 public class Application {
 
     public static void main(String[] args) {
-        String out = run(args);
-        System.out.print(out);
-    }
-
-    private static String run(String[] args) {
         if (args.length == 0) {
-            return "Missing parameter.\n";
+            System.out.println("Missing parameter.");
+            return;
         }
         int count = Integer.parseInt(args[0]);
-        String chars = "x";
+        String character = "x";
         if (args.length > 1) {
-            chars = args[1];
+            character = args[1];
         }
-
-        String out = "";
-        for (int i = 0; i < count; i++) {
-            out += chars;
+        String out = character.repeat(count) + "\n";
+        System.out.print(out);
+        Scanner scanner = new Scanner(System.in);
+        for (; ; ) {
+            String token = scanner.next();
+            if (token.equals("q")) {
+                return;
+            }
+            out = apply(out, token);
+            System.out.print(out);
         }
-        out += "\n";
-        return out;
+    }
+
+    public static String apply(String s, String token) {
+        int index = Integer.parseInt(token.replaceAll("[^\\d]", ""));
+        String c = token.replaceAll("[^A-Za-z]", "");
+        return s.substring(0, index - 1) + c + s.substring(index);
     }
 
     @Test
-    public void noParam() {
-        String[] args = {};
-        String out = Application.run(args);
-        Assertions.assertEquals("Missing parameter.\n", out);
-    }
-
-    @Test
-    public void withParam0() {
-        String[] args = {"0"};
-        String out = Application.run(args);
-        Assertions.assertEquals("\n", out);
-    }
-
-    @Test
-    public void withParam1() {
-        String[] args = {"1"};
-        String out = Application.run(args);
-        Assertions.assertEquals("x\n", out);
-    }
-
-    @Test
-    public void withParam2() {
-        String[] args = {"2"};
-        String out = Application.run(args);
-        Assertions.assertEquals("xx\n", out);
-    }
-
-    @Test
-    public void withParam0y() {
-        String[] args = {"0", "y"};
-        String out = Application.run(args);
-        Assertions.assertEquals("\n", out);
-    }
-
-    @Test
-    public void withParam1y() {
-        String[] args = {"1", "y"};
-        String out = Application.run(args);
-        Assertions.assertEquals("y\n", out);
-    }
-
-    @Test
-    public void withParam2y() {
-        String[] args = {"2", "y"};
-        String out = Application.run(args);
-        Assertions.assertEquals("yy\n", out);
+    public void applyToken() {
+        Assertions.assertEquals("a", Application.apply("y", "1a"));
+        Assertions.assertEquals("ya", Application.apply("yy", "2a"));
+        Assertions.assertEquals("ay", Application.apply("yy", "1a"));
+        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a"));
+        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a"));
     }
 }
