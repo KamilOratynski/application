@@ -29,8 +29,8 @@ public class Application {
     }
 
     public static String apply(String s, String token) {
-        int index = Integer.parseInt(token.substring(0, 1));
-        char c = token.charAt(1);
+        int index = Integer.parseInt(token.replaceAll("[^\\d]", ""));
+        String c = token.replaceAll("[^A-Za-z]", "");
         return s.substring(0, index - 1) + c + s.substring(index);
     }
 
@@ -39,5 +39,7 @@ public class Application {
         Assertions.assertEquals("a", Application.apply("y", "1a"));
         Assertions.assertEquals("ya", Application.apply("yy", "2a"));
         Assertions.assertEquals("ay", Application.apply("yy", "1a"));
+        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a"));
+        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a"));
     }
 }

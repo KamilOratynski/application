@@ -43,3 +43,12 @@ xya
 qya
 qwa
 qwe')
+
+echo 10a q | java Application 10 y | diff -Zu --color - <(cat <<<'yyyyyyyyyy
+yyyyyyyyya')
+
+echo 10a 1q 2w 6e q | java Application 10 y | diff -Zu --color - <(cat <<<'yyyyyyyyyy
+yyyyyyyyya
+qyyyyyyyya
+qwyyyyyyya
+qwyyyeyyya')
