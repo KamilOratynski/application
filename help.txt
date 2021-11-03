@@ -1,0 +1,5 @@
+Usage: java Application <number> [character]
+
+Arguments:
+<number>    - set number of characters displaying, 'x' is displayed by default
+[character] - set character to display
