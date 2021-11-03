@@ -4,7 +4,7 @@ javac -cp junit-platform-console-standalone-1.8.1.jar Application.java
 
 java -jar ./junit-platform-console-standalone-1.8.1.jar --disable-banner --details=none -cp . -c Application
 
-java Application | diff -Zu --color - ./default.txt
+java Application | diff -Zu --color - ./help.txt
 
 echo q | java Application 0 | diff -Zu --color - <(cat <<<'')
 
