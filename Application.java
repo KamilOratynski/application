@@ -19,8 +19,11 @@ public class Application {
         if (args.length > 1) {
             character = args[1];
         }
-        String out = character.repeat(count) + "\n";
-        System.out.print(out);
+        String out = "";
+        for (int i = 0; i < count; i++) {
+            out += character.repeat(count);
+        }
+        System.out.println(out);
         Scanner scanner = new Scanner(System.in);
         for (; ; ) {
             String token = scanner.next();
@@ -28,7 +31,7 @@ public class Application {
                 return;
             }
             out = apply(out, token);
-            System.out.print(out);
+            System.out.println(out);
         }
     }
 
