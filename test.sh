@@ -38,3 +38,12 @@ xyazzzzzz
 qyazzzzzz
 qyazzwzzz
 qyazzwzze')
+
+echo 3x 4y q | java Application 2 z | diff -Zu --color - <(cat <<<'zzzz
+zzxz
+zzxy')
+
+echo 9x 8y 7a q | java Application 3 z | diff -Zu --color - <(cat <<<'zzzzzzzzz
+zzzzzzzzx
+zzzzzzzyx
+zzzzzzayx')
