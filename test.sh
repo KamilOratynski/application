@@ -31,11 +31,6 @@ echo 1x 2y q | java Application 2 z | diff -Zu --color - <(cat <<<'zz
 xz
 xy')
 
-echo 1x 2y 3a q | java Application 5 z | diff -Zu --color - <(cat <<<'zzzzz
-xzzzz
-xyzzz
-xyazz')
-
 echo 1x 2y 3a 1q 2w 3e q | java Application 3 z | diff -Zu --color - <(cat <<<'zzz
 xzz
 xyz
@@ -43,12 +38,3 @@ xya
 qya
 qwa
 qwe')
-
-echo 10a q | java Application 10 y | diff -Zu --color - <(cat <<<'yyyyyyyyyy
-yyyyyyyyya')
-
-echo 10a 1q 2w 6e q | java Application 10 y | diff -Zu --color - <(cat <<<'yyyyyyyyyy
-yyyyyyyyya
-qyyyyyyyya
-qwyyyyyyya
-qwyyyeyyya')
