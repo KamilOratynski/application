@@ -7,10 +7,10 @@ public class Application {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("Usage: app <number> [character]\n\n" +
+            System.out.println("Usage: app number [character]\n\n" +
                     "Arguments:\n" +
-                    "<number>    - set number of characters displaying\n" +
-                    "[character] - set character to display, 'x' is displayed by default");
+                    "number    - set number of characters displaying\n" +
+                    "character - set character to display, 'x' is displayed by default");
             return;
         }
         int count = Integer.parseInt(args[0]);
