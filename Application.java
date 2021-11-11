@@ -7,8 +7,7 @@ public class Application {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("java Application: missing parameter\n" +
-                    "Usage: java Application <number> [character]\n\n" +
+            System.out.println("Usage: java Application <number> [character]\n\n" +
                     "Arguments:\n" +
                     "<number>    - set number of characters displaying\n" +
                     "[character] - set character to display, 'x' is displayed by default");
