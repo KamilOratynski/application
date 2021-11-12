@@ -7,7 +7,10 @@ public class Application {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("Usage: app <times> [char]");
+            System.out.println("Usage: app <times> [char]\n\n" +
+                    "Commands:\n" +
+                    "   1a - means position 1 and char 'a' to replace\n" +
+                    "    q - quit");
             return;
         }
         int count = Integer.parseInt(args[0]);
