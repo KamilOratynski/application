@@ -8,7 +8,8 @@ public class Application {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("Usage: app <times> [char]\n\n" +
-                    "<times> are squared\n" +
+                    "<times> parameter defines length and width of chars displayed.\n" +
+                    "Chars replace position starts at 1 and ends with <times> squared.\n" +
                     "Commands:\n" +
                     "   1a - means position 1 and char 'a' to replace\n" +
                     "    q - quit");
