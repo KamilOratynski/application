@@ -21,8 +21,12 @@ public class Application {
             character = args[1];
         }
         String out = "";
+        int length = 0;
         for (int i = 0; i < count; i++) {
             out += character.repeat(count) + "\n";
+            if (i == 0) {
+                length = out.length();
+            }
         }
         System.out.print(out);
         Scanner scanner = new Scanner(System.in);
@@ -31,15 +35,15 @@ public class Application {
             if (token.equals("q")) {
                 return;
             }
-            out = apply(out, token);
+            out = apply(out, token, length);
             System.out.print(out);
         }
     }
 
-    public static String apply(String s, String token) {
+    public static String apply(String s, String token, int length) {
         int index = Integer.parseInt(token.replaceAll("[^\\d]", ""));
         String c = token.replaceAll("[^A-Za-z]", "");
-        if (index == 3 || index == 4) {
+        if (index >= length) {
             index += 1;
         }
         return s.substring(0, index - 1) + c + s.substring(index);
@@ -47,10 +51,10 @@ public class Application {
 
     @Test
     public void applyToken() {
-        Assertions.assertEquals("a", Application.apply("y", "1a"));
-        Assertions.assertEquals("ya", Application.apply("yy", "2a"));
-        Assertions.assertEquals("ay", Application.apply("yy", "1a"));
-        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a"));
-        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a"));
+        Assertions.assertEquals("a", Application.apply("y", "1a", 2));
+        Assertions.assertEquals("ya", Application.apply("yy", "2a", 3));
+        Assertions.assertEquals("ay", Application.apply("yy", "1a", 2));
+        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a", 11));
+        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a", 11));
     }
 }
