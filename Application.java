@@ -39,6 +39,9 @@ public class Application {
     public static String apply(String s, String token) {
         int index = Integer.parseInt(token.replaceAll("[^\\d]", ""));
         String c = token.replaceAll("[^A-Za-z]", "");
+        if (index == 3 || index == 4) {
+            index += 1;
+        }
         return s.substring(0, index - 1) + c + s.substring(index);
     }
 
