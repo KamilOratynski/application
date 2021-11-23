@@ -6,14 +6,14 @@ java -jar ./junit-platform-console-standalone-1.8.1.jar --disable-banner --detai
 
 java Application | grep '^Usage: .\+' >/dev/null
 
-echo q | java Application 0 | diff -Zu --color - <(cat <<<'')
+echo q | java Application 0 | diff -Zu --color - <(printf "")
 
 echo q | java Application 1 | diff -Zu --color - <(cat <<<'x')
 
 echo q | java Application 2 | diff -Zu --color - <(cat <<<'xx
 xx')
 
-echo q | java Application 0 z | diff -Zu --color - <(cat <<<'')
+echo q | java Application 0 z | diff -Zu --color - <(printf "")
 
 echo q | java Application 1 z | diff -Zu --color - <(cat <<<'z')
 
