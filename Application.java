@@ -53,10 +53,10 @@ public class Application {
 
     @Test
     public void applyToken() {
-        Assertions.assertEquals("a", Application.apply("y", "1a", 2));
-        Assertions.assertEquals("ya", Application.apply("yy", "2a", 3));
-        Assertions.assertEquals("ay", Application.apply("yy", "1a", 2));
-        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a", 11));
-        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a", 11));
+        Assertions.assertEquals("a", Application.apply("y", "1a", 0));
+        Assertions.assertEquals("ya", Application.apply("yy", "2a", 0));
+        Assertions.assertEquals("ay", Application.apply("yy", "1a", 0));
+        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a", 0));
+        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a", 0));
     }
 }
