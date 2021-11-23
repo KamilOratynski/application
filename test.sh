@@ -60,17 +60,39 @@ xya
 zzz
 zzz')
 
-echo 1x 2y 3a 1q 6w 9e q | java Application 3 z | diff -Zu --color - <(cat <<<'zzzzzzzzz
-xzzzzzzzz
-xyzzzzzzz
-xyazzzzzz
-qyazzzzzz
-qyazzwzzz
-qyazzwzze')
+echo 1x 2y 3a 1q 6w 9e q | java Application 3 z | diff -Zu --color - <(cat <<<'zzz
+zzz
+zzz
+xzz
+zzz
+zzz
+xyz
+zzz
+zzz
+xya
+zzz
+zzz
+qya
+zzz
+zzz
+qya
+zzw
+zzz
+qya
+zzw
+zze')
 
-echo 9x 8y 7a q | java Application 3 z | diff -Zu --color - <(cat <<<'zzzzzzzzz
-zzzzzzzzx
-zzzzzzzyx
-zzzzzzayx')
+echo 9x 8y 7a q | java Application 3 z | diff -Zu --color - <(cat <<<'zzz
+zzz
+zzz
+zzz
+zzz
+zzx
+zzz
+zzz
+zyx
+zzz
+zzz
+ayx')
 
 echo OK
