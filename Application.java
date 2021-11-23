@@ -48,6 +48,9 @@ public class Application {
                 index += 1;
             }
         }
+        if (index > s.length()) {
+            return "Position of char to be replaced is too high.\n";
+        }
         return s.substring(0, index - 1) + c + s.substring(index);
     }
 
