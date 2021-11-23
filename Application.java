@@ -22,9 +22,9 @@ public class Application {
         }
         String out = "";
         for (int i = 0; i < count; i++) {
-            out += character.repeat(count);
+            out += character.repeat(count) + "\n";
         }
-        System.out.println(out);
+        System.out.print(out);
         Scanner scanner = new Scanner(System.in);
         for (; ; ) {
             String token = scanner.next();
@@ -32,7 +32,7 @@ public class Application {
                 return;
             }
             out = apply(out, token);
-            System.out.println(out);
+            System.out.print(out);
         }
     }
 
