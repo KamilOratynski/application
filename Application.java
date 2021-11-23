@@ -43,11 +43,10 @@ public class Application {
     public static String apply(String s, String token, int length) {
         int index = Integer.parseInt(token.replaceAll("[^\\d]", ""));
         String c = token.replaceAll("[^A-Za-z]", "");
-        if (index >= length) {
-            index += 1;
-        }
-        if (index >= length * 2) {
-            index += 1;
+        for (int i = 1; i < length; i++) {
+            if (index >= length * i) {
+                index += 1;
+            }
         }
         return s.substring(0, index - 1) + c + s.substring(index);
     }
