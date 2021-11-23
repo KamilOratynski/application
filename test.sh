@@ -47,6 +47,19 @@ xz
 zz
 xy')
 
+echo 1x 2y 3a q | java Application 3 z | diff -Zu --color - <(cat <<<'zzz
+zzz
+zzz
+xzz
+zzz
+zzz
+xyz
+zzz
+zzz
+xya
+zzz
+zzz')
+
 echo 1x 2y 3a 1q 6w 9e q | java Application 3 z | diff -Zu --color - <(cat <<<'zzzzzzzzz
 xzzzzzzzz
 xyzzzzzzz
