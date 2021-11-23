@@ -95,4 +95,13 @@ zzz
 zzz
 ayx')
 
+echo 16a q | java Application 4 y | diff -Zu --color - <(cat <<<'yyyy
+yyyy
+yyyy
+yyyy
+yyyy
+yyyy
+yyyy
+yyya')
+
 echo OK
