@@ -46,6 +46,9 @@ public class Application {
         if (index >= length) {
             index += 1;
         }
+        if (index >= length * 2) {
+            index += 1;
+        }
         return s.substring(0, index - 1) + c + s.substring(index);
     }
 
