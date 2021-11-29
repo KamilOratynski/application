@@ -9,7 +9,7 @@ public class Application {
         if (args.length == 0) {
             System.out.println("Usage: app <times> [char]\n\n" +
                     "<times> parameter defines length and width of chars displayed.\n" +
-                    "Chars replace position starts at 1 and ends with <times> squared.\n" +
+                    "Chars replace position starts at 1 and ends with <times> squared.\n\n" +
                     "Commands:\n" +
                     "   1a - means position 1 and char 'a' to replace\n" +
                     "    q - quit");
@@ -21,12 +21,8 @@ public class Application {
             character = args[1];
         }
         String out = "";
-        int length = 0;
         for (int i = 0; i < count; i++) {
             out += character.repeat(count) + "\n";
-            if (i == 0) {
-                length = out.length();
-            }
         }
         System.out.print(out);
         Scanner scanner = new Scanner(System.in);
@@ -35,16 +31,16 @@ public class Application {
             if (token.equals("q")) {
                 return;
             }
-            out = apply(out, token, length);
+            out = apply(out, token, count + 1);
             System.out.print(out);
         }
     }
 
-    public static String apply(String s, String token, int length) {
+    public static String apply(String s, String token, int row) {
         int index = Integer.parseInt(token.replaceAll("[^\\d]", ""));
         String c = token.replaceAll("[^A-Za-z]", "");
-        for (int i = 1; i < length; i++) {
-            if (index >= length * i) {
+        for (int i = 1; i < row; i++) {
+            if (index >= row * i) {
                 index += 1;
             }
         }
