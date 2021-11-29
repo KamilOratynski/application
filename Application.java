@@ -49,10 +49,14 @@ public class Application {
 
     @Test
     public void applyToken() {
-        Assertions.assertEquals("a", Application.apply("y", "1a", 0));
-        Assertions.assertEquals("ya", Application.apply("yy", "2a", 0));
-        Assertions.assertEquals("ay", Application.apply("yy", "1a", 0));
-        Assertions.assertEquals("yyyyyyyyya", Application.apply("yyyyyyyyyy", "10a", 0));
-        Assertions.assertEquals("asdyyyyyya", Application.apply("asdyyyyyyy", "10a", 0));
+        Assertions.assertEquals("a\n", Application.apply("y\n", "1a", 2));
+        Assertions.assertEquals("ay\nyy", Application.apply("yy\nyy", "1a", 3));
+        Assertions.assertEquals("yy\nay", Application.apply("yy\nyy", "3a", 3));
+        Assertions.assertEquals("yy\nya", Application.apply("yy\nyy", "4a", 3));
+        Assertions.assertEquals("ayy\nyyy\nyyy", Application.apply("yyy\nyyy\nyyy", "1a", 4));
+        Assertions.assertEquals("yyy\nayy\nyyy", Application.apply("yyy\nyyy\nyyy", "4a", 4));
+        Assertions.assertEquals("yyy\nyyy\nayy", Application.apply("yyy\nyyy\nyyy", "7a", 4));
+        Assertions.assertEquals("yyy\nyyy\nyya", Application.apply("yyy\nyyy\nyyy", "9a", 4));
+        Assertions.assertEquals("yyyy\nyyyy\nyyyy\nyyya", Application.apply("yyyy\nyyyy\nyyyy\nyyyy", "16a", 5));
     }
 }
