@@ -20,10 +20,7 @@ public class Application {
         if (args.length > 1) {
             character = args[1];
         }
-        String out = "";
-        for (int i = 0; i < count; i++) {
-            out += character.repeat(count);
-        }
+        String out = character.repeat(count * count);
         System.out.println(out);
         Scanner scanner = new Scanner(System.in);
         for (; ; ) {
