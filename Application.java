@@ -20,15 +20,18 @@ public class Application {
         if (args.length > 1) {
             character = args[1];
         }
-        String out = character.repeat(count * count);
+        String table = character.repeat(count * count);
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(out);
+            for (int i = 0; i < count * count; i++) {
+                System.out.print(table.charAt(i));
+            }
+            System.out.println();
             String token = scanner.next();
             if (token.equals("q")) {
                 return;
             }
-            out = apply(out, token);
+            table = apply(table, token);
         }
     }
 
