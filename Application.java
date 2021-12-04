@@ -21,15 +21,14 @@ public class Application {
             character = args[1];
         }
         String out = character.repeat(count * count);
-        System.out.println(out);
         Scanner scanner = new Scanner(System.in);
-        for (; ; ) {
+        while (true) {
+            System.out.println(out);
             String token = scanner.next();
             if (token.equals("q")) {
                 return;
             }
             out = apply(out, token);
-            System.out.println(out);
         }
     }
 
