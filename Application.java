@@ -24,15 +24,14 @@ public class Application {
         for (int i = 0; i < count; i++) {
             out += character.repeat(count) + "\n";
         }
-        System.out.print(out);
         Scanner scanner = new Scanner(System.in);
-        for (; ; ) {
+        while (true) {
+            System.out.print(out);
             String token = scanner.next();
             if (token.equals("q")) {
                 return;
             }
             out = apply(out, token, count + 1);
-            System.out.print(out);
         }
     }
 
