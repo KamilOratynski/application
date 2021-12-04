@@ -25,8 +25,10 @@ public class Application {
         while (true) {
             for (int i = 0; i < count * count; i++) {
                 System.out.print(table.charAt(i));
+                if ((i + 1) % count == 0) {
+                    System.out.println();
+                }
             }
-            System.out.println();
             String token = scanner.next();
             if (token.equals("q")) {
                 return;
